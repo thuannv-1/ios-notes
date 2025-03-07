@@ -8,7 +8,9 @@
 import UIKit
 
 protocol HomeNavigatorType {
-    func toNoteDetail()
+    func addNewNote()
+    func toNoteDetail(data: Note)
+    func toRecycleBin()
 }
 
 struct HomeNavigator: NavigatorType {
@@ -16,7 +18,7 @@ struct HomeNavigator: NavigatorType {
 }
 
 extension HomeNavigator: HomeNavigatorType {
-    func toNoteDetail() {
+    func addNewNote() {
         let useCase = NoteDetailUseCase()
         let navigator = NoteDetailNavigator(navigationController: navigationController)
         let vm = NoteDetailViewModel(
@@ -25,5 +27,23 @@ extension HomeNavigator: HomeNavigatorType {
         )
         let vc = NoteDetailViewController()
         vc.bindViewModel(to: vm)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toNoteDetail(data: Note) {
+        let useCase = NoteDetailUseCase()
+        let navigator = NoteDetailNavigator(navigationController: navigationController)
+        let vm = NoteDetailViewModel(
+            navigator: navigator,
+            useCase: useCase,
+            data: data
+        )
+        let vc = NoteDetailViewController()
+        vc.bindViewModel(to: vm)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toRecycleBin() {
+        print(#function)
     }
 }

@@ -12,8 +12,6 @@ import RxCocoa
 protocol BindableType: AnyObject {
     associatedtype ViewModelType
     
-    var disposeBag: DisposeBag! { get set }
-    
     var viewModel: ViewModelType! { get set }
     
     func bindViewModel()

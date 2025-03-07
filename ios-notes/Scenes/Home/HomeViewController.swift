@@ -10,36 +10,109 @@ import RxSwift
 import RxCocoa
 
 class HomeViewController: BaseViewController {
-
+    
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var addNewNoteButton: UIButton!
+    
+    private let rightButton: UIBarButtonItem = {
+        let icon = UIImage(systemName: "trash")
+        let button = UIBarButtonItem(
+            image: icon,
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+        button.tintColor = UIColor.systemOrange
+        return button
+    }()
     
     var viewModel: HomeViewModel!
-    var disposeBag: DisposeBag! = DisposeBag()
+    private let disposeBag = DisposeBag()
+    
+    private var dataSource = [NoteSection]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        CoreDataService.shared.addNote(title: "Ghi chú mới 131321", content: "Nội dung của ghi chú 232131321")
+        let notes = CoreDataService.shared.fetchNotes()
+        notes.forEach { print("\($0.title ?? "No Title") - \($0.content ?? "No Content")") }
+
     }
     
     private func setupUI() {
         title = "Notes"
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        searchBar.do {
+            $0.placeholder = "Search"
+            $0.searchTextField.autocorrectionType = .no
+            $0.searchTextField.spellCheckingType = .no
+            $0.searchTextField.smartQuotesType = .no
+            $0.searchTextField.smartDashesType = .no
+            $0.searchTextField.smartInsertDeleteType = .no
+            $0.addDismissButton()
+        }
+        
+        tableView.do {
+            $0.delegate = self
+            $0.dataSource = self
+            $0.sectionHeaderHeight = UITableView.automaticDimension
+            $0.sectionFooterHeight = 12.0
+            $0.separatorStyle = .none
+            $0.register(UINib(nibName: "NoteTableViewCell", bundle: nil),
+                        forCellReuseIdentifier: "NoteTableViewCell")
+            $0.register(UINib(nibName: "NoteHeaderView", bundle: nil),
+                        forHeaderFooterViewReuseIdentifier: "NoteHeaderView")
+        }
+        
+        addNewNoteButton.do {
+            $0.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
+            $0.backgroundColor = .systemOrange
+            $0.layer.cornerRadius = 26.0
+            $0.clipsToBounds = true
+            $0.tintColor = .white
+            $0.applyShadow()
+        }
+      
     }
 }
 
+// MARK: - Bindable
 extension HomeViewController: BindableType {
     func bindViewModel() {
         let selectTrigger = tableView.rx.itemSelected
             .asDriver()
         
+        let addNoteTrigger = addNewNoteButton.rx.tap
+            .asDriver()
+        
+        let searchTrigger = searchBar.rx.text
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .asDriverOnErrorJustComplete()
+        
+        let recycleBinTrigger = rightButton.rx.tap
+            .asDriver()
+        
         let input = HomeViewModel.Input(
             loadTrigger: .just(()),
-            selectTrigger: selectTrigger
+            addNoteTrigger: addNoteTrigger,
+            searchTrigger: searchTrigger,
+            selectTrigger: selectTrigger,
+            recycleBinTrigger: recycleBinTrigger
         )
         
         let output = viewModel.transform(input)
+        
+        output.dataSource
+            .drive(dataSourceBinder)
+            .disposed(by: disposeBag)
         
         output.voidActions
             .drive()
@@ -47,19 +120,51 @@ extension HomeViewController: BindableType {
     }
 }
 
+// MARK: - Binders
+extension HomeViewController {
+    private var dataSourceBinder: Binder<[NoteSection]> {
+        Binder(self) { vc, data in
+            vc.dataSource = data
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UITableViewDelegate,
                               UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return dataSource[section].cells.count
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let data = dataSource[indexPath.section].cells[indexPath.row]
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "NoteTableViewCell",
+            for: indexPath
+        ) as? NoteTableViewCell
+        cell?.selectionStyle = .none
+        cell?.configCell(note: data, searchKey: searchBar.text)
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: "NoteHeaderView"
+        ) as? NoteHeaderView
+        view?.configView(title: dataSource[section].header)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
+        cell.displayAnimate(indexPath: indexPath)
     }
 }

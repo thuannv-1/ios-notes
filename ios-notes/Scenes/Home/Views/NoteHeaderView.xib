@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="bOF-9O-WOI" customClass="NoteHeaderView" customModule="ios_notes" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="155"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfB-bV-lj6">
+                    <rect key="frame" x="0.0" y="59" width="411" height="62"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/03/2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oor-2J-PfA">
+                            <rect key="frame" x="22" y="2" width="367" height="58"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Oor-2J-PfA" secondAttribute="bottom" constant="2" id="T1c-Py-qEW"/>
+                        <constraint firstItem="Oor-2J-PfA" firstAttribute="leading" secondItem="dfB-bV-lj6" secondAttribute="leading" constant="22" id="mhY-ow-1NR"/>
+                        <constraint firstAttribute="trailing" secondItem="Oor-2J-PfA" secondAttribute="trailing" constant="22" id="qbc-Jl-vvY"/>
+                        <constraint firstItem="Oor-2J-PfA" firstAttribute="top" secondItem="dfB-bV-lj6" secondAttribute="top" constant="2" id="zoU-nh-pb3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="y2g-bc-dzD"/>
+            <constraints>
+                <constraint firstItem="y2g-bc-dzD" firstAttribute="trailing" secondItem="dfB-bV-lj6" secondAttribute="trailing" id="AMa-of-0eE"/>
+                <constraint firstItem="dfB-bV-lj6" firstAttribute="leading" secondItem="y2g-bc-dzD" secondAttribute="leading" id="EZw-Lz-KJo"/>
+                <constraint firstItem="dfB-bV-lj6" firstAttribute="top" secondItem="y2g-bc-dzD" secondAttribute="top" id="K9f-5I-b57"/>
+                <constraint firstItem="y2g-bc-dzD" firstAttribute="bottom" secondItem="dfB-bV-lj6" secondAttribute="bottom" id="rHx-Rv-9Ys"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="Oor-2J-PfA" id="nVS-0q-kEA"/>
+            </connections>
+            <point key="canvasLocation" x="133.58778625954199" y="-225.7042253521127"/>
+        </view>
+    </objects>
+</document>

@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ios_notes" customModuleProvider="target">
             <connections>
+                <outlet property="addNewNoteButton" destination="4kC-AL-ZyC" id="jV8-aW-t7t"/>
+                <outlet property="searchBar" destination="UpX-1D-YNx" id="1mz-Kr-3lo"/>
                 <outlet property="tableView" destination="ZvM-2z-PX1" id="FJW-RH-9Im"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,20 +21,38 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZvM-2z-PX1">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZvM-2z-PX1">
+                    <rect key="frame" x="0.0" y="127" width="393" height="691"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UpX-1D-YNx">
+                    <rect key="frame" x="12" y="59" width="369" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kC-AL-ZyC">
+                    <rect key="frame" x="321" y="734" width="52" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="Asm-HE-C57"/>
+                        <constraint firstAttribute="width" constant="52" id="cbp-7J-rB4"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=""/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="ZvM-2z-PX1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6nO-Gn-Q3W"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZvM-2z-PX1" secondAttribute="bottom" id="IKT-dY-cG5"/>
+                <constraint firstItem="UpX-1D-YNx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Jdc-t4-59x"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4kC-AL-ZyC" secondAttribute="trailing" constant="20" id="OF8-Oc-t1L"/>
+                <constraint firstItem="UpX-1D-YNx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="Oz0-PI-6vR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="4kC-AL-ZyC" secondAttribute="bottom" constant="32" id="QG3-fx-SFx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZvM-2z-PX1" secondAttribute="trailing" id="XPK-Ay-ZaB"/>
-                <constraint firstItem="ZvM-2z-PX1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="l6D-XD-O2g"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UpX-1D-YNx" secondAttribute="trailing" constant="12" id="bXZ-yB-IQp"/>
+                <constraint firstItem="ZvM-2z-PX1" firstAttribute="top" secondItem="UpX-1D-YNx" secondAttribute="bottom" constant="12" id="rbr-jB-LbR"/>
             </constraints>
-            <point key="canvasLocation" x="120" y="20"/>
+            <point key="canvasLocation" x="119.84732824427481" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>

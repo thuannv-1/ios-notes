@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		30D5D5854D82D2C37DCA8277 /* Pods_ios_notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D673BC79869DEC5C49854D05 /* Pods_ios_notes.framework */; };
+		3E58F3282D7ADA3E0048A694 /* Note+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3272D7ADA3B0048A694 /* Note+.swift */; };
+		3E58F32A2D7ADB030048A694 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3292D7ADAFE0048A694 /* UIView+.swift */; };
+		3E58F3322D7AFD120048A694 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3312D7AFD100048A694 /* UITableViewCell+.swift */; };
+		3E58F3342D7B02580048A694 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3332D7B02570048A694 /* UITextView+.swift */; };
+		3E58F3362D7B20640048A694 /* UISearchBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3352D7B205B0048A694 /* UISearchBar+.swift */; };
 		3E7CB0D72D79F58F0083F15D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB0BE2D79F58F0083F15D /* HomeViewController.xib */; };
 		3E7CB0D82D79F58F0083F15D /* NoteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB0C42D79F58F0083F15D /* NoteDetailViewController.xib */; };
 		3E7CB0D92D79F58F0083F15D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB0CF2D79F58F0083F15D /* Assets.xcassets */; };
@@ -36,6 +41,11 @@
 		3E7CB0FA2D79F78F0083F15D /* ios_notesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB0F82D79F78F0083F15D /* ios_notesTests.swift */; };
 		3E7CB0FE2D79F7920083F15D /* ios_notesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB0FB2D79F7920083F15D /* ios_notesUITests.swift */; };
 		3E7CB0FF2D79F7920083F15D /* ios_notesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB0FC2D79F7920083F15D /* ios_notesUITestsLaunchTests.swift */; };
+		3E7CB1032D79FAE70083F15D /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB1022D79FAE70083F15D /* NoteTableViewCell.xib */; };
+		3E7CB1042D79FAE70083F15D /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB1012D79FAE70083F15D /* NoteTableViewCell.swift */; };
+		3E7CB1072D79FB3D0083F15D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB1062D79FB3D0083F15D /* Note.swift */; };
+		3E7CB10A2D7A02850083F15D /* NoteHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB1092D7A02850083F15D /* NoteHeaderView.swift */; };
+		3E7CB1102D7A02DB0083F15D /* NoteHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB10F2D7A02DB0083F15D /* NoteHeaderView.xib */; };
 		809E6414746E357743BE00E8 /* Pods_ios_notes_ios_notesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B878C437FBAF97EB292EB580 /* Pods_ios_notes_ios_notesUITests.framework */; };
 		F1608C5D0BB4218E3EDAEAAE /* Pods_ios_notesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 645DDD566E2F13A4C04C7134 /* Pods_ios_notesTests.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +69,11 @@
 
 /* Begin PBXFileReference section */
 		1F69B01B4393504C5D2264A2 /* Pods-ios-notes-ios-notesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-notes-ios-notesUITests.release.xcconfig"; path = "Target Support Files/Pods-ios-notes-ios-notesUITests/Pods-ios-notes-ios-notesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3E58F3272D7ADA3B0048A694 /* Note+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+.swift"; sourceTree = "<group>"; };
+		3E58F3292D7ADAFE0048A694 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		3E58F3312D7AFD100048A694 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		3E58F3332D7B02570048A694 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
+		3E58F3352D7B205B0048A694 /* UISearchBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+.swift"; sourceTree = "<group>"; };
 		3E7CB0352D79ECCC0083F15D /* ios-notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7CB04E2D79ECCE0083F15D /* ios-notesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-notesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7CB0582D79ECCE0083F15D /* ios-notesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-notesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +106,11 @@
 		3E7CB0F82D79F78F0083F15D /* ios_notesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_notesTests.swift; sourceTree = "<group>"; };
 		3E7CB0FB2D79F7920083F15D /* ios_notesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_notesUITests.swift; sourceTree = "<group>"; };
 		3E7CB0FC2D79F7920083F15D /* ios_notesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_notesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3E7CB1012D79FAE70083F15D /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		3E7CB1022D79FAE70083F15D /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
+		3E7CB1062D79FB3D0083F15D /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		3E7CB1092D7A02850083F15D /* NoteHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteHeaderView.swift; sourceTree = "<group>"; };
+		3E7CB10F2D7A02DB0083F15D /* NoteHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteHeaderView.xib; sourceTree = "<group>"; };
 		62378F92EDF272B24884E01A /* Pods-ios-notesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-notesTests.release.xcconfig"; path = "Target Support Files/Pods-ios-notesTests/Pods-ios-notesTests.release.xcconfig"; sourceTree = "<group>"; };
 		645DDD566E2F13A4C04C7134 /* Pods_ios_notesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_notesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		784733CF8EDA316A83FB88C6 /* Pods-ios-notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-notes.release.xcconfig"; path = "Target Support Files/Pods-ios-notes/Pods-ios-notes.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +149,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E58F3262D7ADA250048A694 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E58F3272D7ADA3B0048A694 /* Note+.swift */,
+				3E58F3292D7ADAFE0048A694 /* UIView+.swift */,
+				3E58F3312D7AFD100048A694 /* UITableViewCell+.swift */,
+				3E58F3332D7B02570048A694 /* UITextView+.swift */,
+				3E58F3352D7B205B0048A694 /* UISearchBar+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3E7CB02C2D79ECCC0083F15D = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +205,8 @@
 		3E7CB0C02D79F58F0083F15D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3E7CB1082D7A02590083F15D /* Views */,
+				3E7CB1002D79FACC0083F15D /* Cells */,
 				3E7CB0BD2D79F58F0083F15D /* HomeViewController.swift */,
 				3E7CB0BE2D79F58F0083F15D /* HomeViewController.xib */,
 				3E7CB0BF2D79F58F0083F15D /* HomeViewModel.swift */,
@@ -220,6 +254,7 @@
 		3E7CB0CD2D79F58F0083F15D /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				3E58F3262D7ADA250048A694 /* Extensions */,
 				3E7CB0CC2D79F58F0083F15D /* Architecture */,
 			);
 			path = Supports;
@@ -258,6 +293,7 @@
 		3E7CB0F22D79F6340083F15D /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				3E7CB1052D79FB360083F15D /* Models */,
 				3E7CB0F52D79F6430083F15D /* CoreData */,
 			);
 			path = Domain;
@@ -287,6 +323,32 @@
 				3E7CB0FC2D79F7920083F15D /* ios_notesUITestsLaunchTests.swift */,
 			);
 			path = "ios-notesUITests";
+			sourceTree = "<group>";
+		};
+		3E7CB1002D79FACC0083F15D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3E7CB1012D79FAE70083F15D /* NoteTableViewCell.swift */,
+				3E7CB1022D79FAE70083F15D /* NoteTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3E7CB1052D79FB360083F15D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3E7CB1062D79FB3D0083F15D /* Note.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3E7CB1082D7A02590083F15D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3E7CB1092D7A02850083F15D /* NoteHeaderView.swift */,
+				3E7CB10F2D7A02DB0083F15D /* NoteHeaderView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B66B015B1D1E0CD149AAA370 /* Frameworks */ = {
@@ -425,6 +487,8 @@
 				3E7CB0D72D79F58F0083F15D /* HomeViewController.xib in Resources */,
 				3E7CB0D82D79F58F0083F15D /* NoteDetailViewController.xib in Resources */,
 				3E7CB0D92D79F58F0083F15D /* Assets.xcassets in Resources */,
+				3E7CB1102D7A02DB0083F15D /* NoteHeaderView.xib in Resources */,
+				3E7CB1032D79FAE70083F15D /* NoteTableViewCell.xib in Resources */,
 				3E7CB0DB2D79F58F0083F15D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,14 +617,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E58F3322D7AFD120048A694 /* UITableViewCell+.swift in Sources */,
 				3E7CB0DC2D79F58F0083F15D /* AppNavigator.swift in Sources */,
 				3E7CB0DD2D79F58F0083F15D /* AppUseCase.swift in Sources */,
+				3E58F3282D7ADA3E0048A694 /* Note+.swift in Sources */,
+				3E7CB1072D79FB3D0083F15D /* Note.swift in Sources */,
 				3E7CB0DE2D79F58F0083F15D /* AppViewModel.swift in Sources */,
+				3E58F3362D7B20640048A694 /* UISearchBar+.swift in Sources */,
 				3E7CB0DF2D79F58F0083F15D /* BaseViewController.swift in Sources */,
 				3E7CB0E02D79F58F0083F15D /* NavigatorType.swift in Sources */,
 				3E7CB0E12D79F58F0083F15D /* HomeNavigator.swift in Sources */,
+				3E58F3342D7B02580048A694 /* UITextView+.swift in Sources */,
 				3E7CB0E22D79F58F0083F15D /* HomeUseCase.swift in Sources */,
 				3E7CB0F72D79F6730083F15D /* CoreDataService.swift in Sources */,
+				3E58F32A2D7ADB030048A694 /* UIView+.swift in Sources */,
 				3E7CB0E32D79F58F0083F15D /* HomeViewController.swift in Sources */,
 				3E7CB0E42D79F58F0083F15D /* HomeViewModel.swift in Sources */,
 				3E7CB0E52D79F58F0083F15D /* NoteDetailNavigator.swift in Sources */,
@@ -569,11 +639,13 @@
 				3E7CB0E82D79F58F0083F15D /* NoteDetailViewModel.swift in Sources */,
 				3E7CB0E92D79F58F0083F15D /* BindableType.swift in Sources */,
 				3E7CB0EA2D79F58F0083F15D /* Driver+.swift in Sources */,
+				3E7CB10A2D7A02850083F15D /* NoteHeaderView.swift in Sources */,
 				3E7CB0EB2D79F58F0083F15D /* ObservableType+.swift in Sources */,
 				3E7CB0EC2D79F58F0083F15D /* ViewModelType.swift in Sources */,
 				3E7CB0ED2D79F58F0083F15D /* AppDelegate.swift in Sources */,
 				3E7CB0EE2D79F58F0083F15D /* ios_notes.xcdatamodeld in Sources */,
 				3E7CB0EF2D79F58F0083F15D /* SceneDelegate.swift in Sources */,
+				3E7CB1042D79FAE70083F15D /* NoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
