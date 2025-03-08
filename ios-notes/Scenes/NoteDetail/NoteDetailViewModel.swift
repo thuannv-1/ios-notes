@@ -47,22 +47,20 @@ extension NoteDetailViewModel: ViewModelType {
             .map { note }
         
         let newNote = input.textTrigger
-            .map { $0?.toNote() }
+            .map { $0?.toNote(id: note?.id) }
             .unwrap()
         
-        let combineNotes = Driver.combineLatest(
+        let isContentChanged = Driver.combineLatest(
             currentNote,
             newNote
         )
-        
-        let isContentChanged = combineNotes
             .map {
                 return $0?.fullContent != $1.fullContent
             }
         
         let addNew = input.saveTrigger
-            .withLatestFrom(newNote)
             .filter { _ in mode == .addNew }
+            .withLatestFrom(newNote)
             .flatMapLatest {
                 useCase.addNote(note: $0)
                     .asDriverOnErrorJustComplete()
@@ -71,10 +69,10 @@ extension NoteDetailViewModel: ViewModelType {
             .mapToVoid()
         
         let edit = input.saveTrigger
-            .withLatestFrom(combineNotes)
             .filter { _ in mode == .edit }
+            .withLatestFrom(newNote)
             .flatMapLatest {
-                useCase.updateNote(currentNote: $0.0, newNote: $0.1)
+                useCase.updateNote(note: $0)
                     .asDriverOnErrorJustComplete()
             }
             .do { _ in navigator.pop() }

@@ -14,7 +14,7 @@ extension String {
 }
 
 extension String {
-    func toNote() -> Note? {
+    func toNote(id: String?) -> Note? {
         guard !self.isEmpty else {
             return nil
         }
@@ -25,7 +25,7 @@ extension String {
         let content = lines.dropFirst().joined(separator: "\n")
         
         return Note(
-            id: UUID(),
+            id: id ?? UUID().uuidString,
             title: title,
             content: content,
             updatedAt: Date()

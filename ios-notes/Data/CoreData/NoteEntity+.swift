@@ -14,8 +14,7 @@ extension Array where Element == NoteEntity {
                  title: $0.title,
                  content: $0.content,
                  updatedAt: $0.updatedAt,
-                 deletedAt: $0.deletedAt,
-                 rawValue: $0)
+                 deletedAt: $0.deletedAt)
         }
     }
 }

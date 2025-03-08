@@ -10,7 +10,7 @@ import RxCocoa
 
 protocol NoteDetailUseCaseType {
     func addNote(note: Note) -> Observable<Note>
-    func updateNote(currentNote: Note?, newNote: Note) -> Observable<Note>
+    func updateNote(note: Note) -> Observable<Note>
     func softDelete(note: Note) -> Observable<Note>
     func forceDelete(note: Note) -> Observable<Bool>
     func revert(note: Note) -> Observable<Note>
@@ -23,21 +23,14 @@ extension NoteDetailUseCase: NoteDetailUseCaseType {
         CoreDataService.shared.addNote(note: note)
     }
     
-    func updateNote(currentNote: Note?, newNote: Note) -> Observable<Note> {
-        CoreDataService.shared.updateNote(
-            currentNote: currentNote,
-            newNote: newNote
-        )
+    func updateNote(note: Note) -> Observable<Note> {
+        CoreDataService.shared.updateNote(note: note)
     }
     
     func softDelete(note: Note) -> Observable<Note> {
-        var deletedNote = note
-        deletedNote.deletedAt = Date()
-        
-        return CoreDataService.shared.updateNote(
-            currentNote: note,
-            newNote: deletedNote
-        )
+        var newNote = note
+        newNote.deletedAt = Date()
+        return CoreDataService.shared.updateNote(note: newNote)
     }
     
     func forceDelete(note: Note) -> Observable<Bool> {
@@ -47,10 +40,6 @@ extension NoteDetailUseCase: NoteDetailUseCaseType {
     func revert(note: Note) -> Observable<Note> {
         var note = note
         note.deletedAt = nil
-        
-        return CoreDataService.shared.updateNote(
-            currentNote: note,
-            newNote: note
-        )
+        return CoreDataService.shared.updateNote(note: note)
     }
 }

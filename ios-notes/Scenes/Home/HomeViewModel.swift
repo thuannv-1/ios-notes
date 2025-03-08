@@ -23,6 +23,7 @@ struct HomeViewModel {
 extension HomeViewModel: ViewModelType {
     struct Input {
         let loadTrigger: Driver<Void>
+        let refreshTrigger: Driver<Void>
         let addNoteTrigger: Driver<Void>
         let searchTrigger: Driver<String?>
         let selectTrigger: Driver<IndexPath>
@@ -36,14 +37,27 @@ extension HomeViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         
-        let notes = input.loadTrigger
+        let localNotes = input.loadTrigger
             .flatMapLatest {
                 useCase.getNotes()
                     .asDriverOnErrorJustComplete()
             }
         
+        let remoteNotes = input.refreshTrigger.startWith(())
+            .flatMapLatest {
+                useCase.getRemoteNotes()
+                    .asDriverOnErrorJustComplete()
+            }
+        
+        let syncUpNotes = Driver.combineLatest(
+            localNotes,
+            remoteNotes
+        )
+            .map { useCase.prepareSyncNotes(local: $0, remote: $1) }
+            .do { useCase.saveSyncNotes(notes: $0) }
+        
         let dataSource = Driver.combineLatest(input.searchTrigger,
-                                              notes)
+                                              syncUpNotes)
             .flatMap { text, data in
                 useCase.generateDataSource(searchKey: text, notes: data)
                     .asDriverOnErrorJustComplete()

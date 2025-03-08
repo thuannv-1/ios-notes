@@ -10,6 +10,10 @@ import RxCocoa
 
 protocol HomeUseCaseType {
     func getNotes() -> Observable<[Note]>
+    func getRemoteNotes() -> Observable<[Note]>
+    func prepareSyncNotes(local: [Note],
+                          remote: [Note]) -> [Note]
+    func saveSyncNotes(notes: [Note])
     func generateDataSource(searchKey: String?,
                             notes: [Note]) -> Observable<[NoteSection]>
 }
@@ -19,12 +23,16 @@ struct HomeUseCase { }
 extension HomeUseCase: HomeUseCaseType {
     func getNotes() -> Observable<[Note]> {
         CoreDataService.shared.fetchNotes()
-            .map { $0.filterNotDeleted() }
+    }
+    
+    func getRemoteNotes() -> Observable<[Note]> {
+        return FirebaseService.shared.getNotes()
     }
     
     func generateDataSource(searchKey: String?,
                             notes: [Note]) -> Observable<[NoteSection]> {
         .create { observable in
+            let notes = notes.filterNotDeleted()
             guard let searchKey = searchKey,
                   !searchKey.isEmpty else {
                 observable.onNext(notes.groupedByUpdateDate())
@@ -42,5 +50,36 @@ extension HomeUseCase: HomeUseCaseType {
             observable.onCompleted()
             return Disposables.create()
         }
+    }
+    
+    func prepareSyncNotes(local: [Note], remote: [Note]) -> [Note] {
+        var remoteDict = Dictionary(uniqueKeysWithValues: remote.map { ($0.id, $0) })
+        var syncedNotes: [Note] = []
+        for localNote in local {
+            if localNote.isDeleted {
+                if remoteDict[localNote.id] != nil {
+                    remoteDict.removeValue(forKey: localNote.id)
+                }
+            } else {
+                if var remoteNote = remoteDict[localNote.id] {
+                    if (localNote.updatedAt ?? Date()) > (remoteNote.updatedAt ?? Date()) {
+                        remoteNote.updatedAt = localNote.updatedAt
+                        remoteNote.title = localNote.title
+                        remoteNote.content = localNote.content
+                    }
+                    syncedNotes.append(remoteNote)
+                    remoteDict.removeValue(forKey: localNote.id)
+                } else {
+                    syncedNotes.append(localNote)
+                }
+            }
+        }
+        syncedNotes.append(contentsOf: remoteDict.values)
+        return syncedNotes
+    }
+    
+    func saveSyncNotes(notes: [Note]) {
+        CoreDataService.shared.saveSyncNotes(notes)
+        FirebaseService.shared.saveSyncNotes(notes)
     }
 }

@@ -8,10 +8,9 @@
 import Foundation
 
 struct Note {
-    var id: UUID?
+    var id: String?
     var title: String?
     var content: String?
     var updatedAt: Date?
     var deletedAt: Date?
-    var rawValue: NoteEntity?
 }

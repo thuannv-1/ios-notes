@@ -16,6 +16,18 @@ final class HomeViewController: BaseViewController {
     @IBOutlet private weak var addNewNoteButton: UIButton!
     @IBOutlet private weak var emptyLabel: UILabel!
     
+    private lazy var refreshControl: UIRefreshControl = {
+        return UIRefreshControl().with {
+            $0.addTarget(
+                self,
+                action: #selector(refreshData),
+                for: .valueChanged
+            )
+            $0.tintColor = .systemOrange
+            $0.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        }
+    }()
+    
     private let recycleBinButton: UIBarButtonItem = {
         let button = UIBarButtonItem(
             title: "Trash",
@@ -33,6 +45,7 @@ final class HomeViewController: BaseViewController {
     
     var viewModel: HomeViewModel!
     private let disposeBag = DisposeBag()
+    private let refreshTrigger = PublishSubject<Void>()
     
     private var dataSource = [NoteSection]() {
         didSet {
@@ -43,7 +56,6 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
     }
     
     private func setupUI() {
@@ -66,6 +78,7 @@ final class HomeViewController: BaseViewController {
             $0.sectionHeaderHeight = UITableView.automaticDimension
             $0.sectionFooterHeight = 12.0
             $0.separatorStyle = .none
+            $0.refreshControl = refreshControl
             $0.register(UINib(nibName: "NoteTableViewCell", bundle: nil),
                         forCellReuseIdentifier: "NoteTableViewCell")
             $0.register(UINib(nibName: "NoteHeaderView", bundle: nil),
@@ -82,6 +95,11 @@ final class HomeViewController: BaseViewController {
         }
         
         setupEmtpyLabel()
+    }
+    
+    @objc
+    private func refreshData() {
+        refreshTrigger.onNext(())
     }
     
     private func setupEmtpyLabel() {
@@ -132,6 +150,7 @@ extension HomeViewController: BindableType {
         
         let input = HomeViewModel.Input(
             loadTrigger: loadTrigger,
+            refreshTrigger: refreshTrigger.asDriverOnErrorJustComplete(),
             addNoteTrigger: addNoteTrigger,
             searchTrigger: searchTrigger,
             selectTrigger: selectTrigger,
@@ -155,6 +174,7 @@ extension HomeViewController {
     private var dataSourceBinder: Binder<[NoteSection]> {
         Binder(self) { vc, data in
             vc.dataSource = data
+            vc.refreshControl.endRefreshing()
             vc.emptyLabel.isHidden = !data.isEmpty
         }
     }

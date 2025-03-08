@@ -20,7 +20,7 @@ extension Note {
 extension Array where Element == Note {
     func groupedByUpdateDate() -> [NoteSection] {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = DateFormat.dayMonthYear.rawValue
         
         let groupedNotes = Dictionary(grouping: self) { note in
             note.updatedAt.map { dateFormatter.string(from: $0) } ?? "Unknown Date"

@@ -10,6 +10,6 @@ import UIKit
 class BaseViewController: UIViewController {
     
     deinit {
-        debugPrint(String(describing: type(of: self)) + " deinit")
+        debugPrint(String(describing: type(of: self)) + #function)
     }
 }
