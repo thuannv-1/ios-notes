@@ -7,6 +7,16 @@
 
 import Foundation
 
+extension Note {
+    var fullContent: String? {
+        return title?.appending("\n").appending(content ?? "")
+    }
+    
+    var isDeleted: Bool {
+        return deletedAt != nil
+    }
+}
+
 extension Array where Element == Note {
     func groupedByUpdateDate() -> [NoteSection] {
         let dateFormatter = DateFormatter()
@@ -25,5 +35,13 @@ extension Array where Element == Note {
             )
         }
         .sorted { $0.header ?? "" > $1.header ?? "" }
+    }
+    
+    func filterDeleted() -> [Note] {
+        return filter{ $0.isDeleted }
+    }
+    
+    func filterNotDeleted() -> [Note] {
+        return filter { !$0.isDeleted }
     }
 }

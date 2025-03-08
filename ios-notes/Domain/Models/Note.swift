@@ -8,15 +8,10 @@
 import Foundation
 
 struct Note {
-    var id: UUID
+    var id: UUID?
     var title: String?
     var content: String?
     var updatedAt: Date?
     var deletedAt: Date?
-}
-
-extension Note {
-    var fullContent: String? {
-        return title?.appending("\n").appending(content ?? "")
-    }
+    var rawValue: NoteEntity?
 }

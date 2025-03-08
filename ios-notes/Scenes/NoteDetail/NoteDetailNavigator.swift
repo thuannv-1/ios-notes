@@ -8,6 +8,7 @@
 import UIKit
 
 protocol NoteDetailNavigatorType {
+    func pop()
     func toNoteDetail()
 }
 

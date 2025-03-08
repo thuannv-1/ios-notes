@@ -15,15 +15,18 @@ class HomeViewController: BaseViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var addNewNoteButton: UIButton!
     
-    private let rightButton: UIBarButtonItem = {
-        let icon = UIImage(systemName: "trash")
+    private let recycleBinButton: UIBarButtonItem = {
         let button = UIBarButtonItem(
-            image: icon,
+            title: "Trash",
             style: .plain,
             target: nil,
             action: nil
         )
-        button.tintColor = UIColor.systemOrange
+        button.tintColor = .systemOrange
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 17.0, weight: .semibold)
+        ]
+        button.setTitleTextAttributes(attributes, for: .normal)
         return button
     }()
     
@@ -39,15 +42,12 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        CoreDataService.shared.addNote(title: "Ghi chú mới 131321", content: "Nội dung của ghi chú 232131321")
-        let notes = CoreDataService.shared.fetchNotes()
-        notes.forEach { print("\($0.title ?? "No Title") - \($0.content ?? "No Content")") }
 
     }
     
     private func setupUI() {
         title = "Notes"
+        navigationItem.rightBarButtonItem = recycleBinButton
         
         searchBar.do {
             $0.placeholder = "Search"
@@ -79,13 +79,16 @@ class HomeViewController: BaseViewController {
             $0.tintColor = .white
             $0.applyShadow()
         }
-      
     }
 }
 
 // MARK: - Bindable
 extension HomeViewController: BindableType {
     func bindViewModel() {
+        let loadTrigger = rx.methodInvoked(#selector(viewWillAppear(_:)))
+            .asDriverOnErrorJustComplete()
+            .mapToVoid()
+        
         let selectTrigger = tableView.rx.itemSelected
             .asDriver()
         
@@ -97,11 +100,11 @@ extension HomeViewController: BindableType {
             .distinctUntilChanged()
             .asDriverOnErrorJustComplete()
         
-        let recycleBinTrigger = rightButton.rx.tap
+        let recycleBinTrigger = recycleBinButton.rx.tap
             .asDriver()
         
         let input = HomeViewModel.Input(
-            loadTrigger: .just(()),
+            loadTrigger: loadTrigger,
             addNoteTrigger: addNoteTrigger,
             searchTrigger: searchTrigger,
             selectTrigger: selectTrigger,

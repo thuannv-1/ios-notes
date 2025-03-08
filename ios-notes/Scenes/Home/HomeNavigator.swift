@@ -19,28 +19,18 @@ struct HomeNavigator: NavigatorType {
 
 extension HomeNavigator: HomeNavigatorType {
     func addNewNote() {
-        let useCase = NoteDetailUseCase()
-        let navigator = NoteDetailNavigator(navigationController: navigationController)
-        let vm = NoteDetailViewModel(
-            navigator: navigator,
-            useCase: useCase
+        AppAssembler.buildNoteDetail(
+            navigationController: navigationController,
+            mode: .addNew
         )
-        let vc = NoteDetailViewController()
-        vc.bindViewModel(to: vm)
-        navigationController.pushViewController(vc, animated: true)
     }
     
     func toNoteDetail(data: Note) {
-        let useCase = NoteDetailUseCase()
-        let navigator = NoteDetailNavigator(navigationController: navigationController)
-        let vm = NoteDetailViewModel(
-            navigator: navigator,
-            useCase: useCase,
-            data: data
+        AppAssembler.buildNoteDetail(
+            navigationController: navigationController,
+            mode: .edit,
+            note: data
         )
-        let vc = NoteDetailViewController()
-        vc.bindViewModel(to: vm)
-        navigationController.pushViewController(vc, animated: true)
     }
     
     func toRecycleBin() {

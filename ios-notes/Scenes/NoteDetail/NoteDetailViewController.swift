@@ -14,7 +14,19 @@ class NoteDetailViewController: BaseViewController {
     
     @IBOutlet private weak var inputTextView: UITextView!
     
-    private let saveButton: UIBarButtonItem = {
+    private lazy var deleteButton: UIBarButtonItem = {
+        let icon = UIImage(systemName: "trash")
+        let button = UIBarButtonItem(
+            image: icon,
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+        button.tintColor = UIColor.systemOrange
+        return button
+    }()
+    
+    private lazy var saveButton: UIBarButtonItem = {
         let button = UIBarButtonItem(
             title: "Save",
             style: .plain,
@@ -38,7 +50,7 @@ class NoteDetailViewController: BaseViewController {
     }
     
     private func setupUI() {
-        navigationItem.rightBarButtonItem = saveButton
+        navigationItem.rightBarButtonItems = [saveButton, deleteButton]
         
         inputTextView.do {
             $0.font = .boldSystemFont(ofSize: 24)
@@ -57,14 +69,31 @@ class NoteDetailViewController: BaseViewController {
 
 extension NoteDetailViewController: BindableType {
     func bindViewModel() {
+        let textTrigger = inputTextView.rx.text
+            .distinctUntilChanged()
+            .asDriverOnErrorJustComplete()
+        
+        let saveTrigger = saveButton.rx.tap
+            .asDriver()
+        
+        let deleteTrigger = deleteButton.rx.tap
+            .asDriver()
+        
         let input = NoteDetailViewModel.Input(
-            loadTrigger: .just(())
+            loadTrigger: .just(()),
+            textTrigger: textTrigger,
+            saveTrigger: saveTrigger,
+            deleteTrigger: deleteTrigger
         )
         
         let output = viewModel.transform(input)
         
-        output.data
-            .drive(dataBinder)
+        output.mode
+            .drive(modeBinder)
+            .disposed(by: disposeBag)
+        
+        output.currentNote
+            .drive(currentNoteBinder)
             .disposed(by: disposeBag)
         
         output.voidActions
@@ -86,10 +115,23 @@ extension NoteDetailViewController: BindableType {
 }
 
 extension NoteDetailViewController {
-    private var dataBinder: Binder<Note> {
+    private var currentNoteBinder: Binder<Note> {
         Binder(self) { vc, data in
             vc.inputTextView.text = data.fullContent
             vc.inputTextView.applyTitleStyling()
+        }
+    }
+    
+    private var modeBinder: Binder<NoteDetailMode> {
+        Binder(self) { vc, mode in
+            switch mode {
+            case .addNew:
+                vc.deleteButton.isHidden = true
+            case .edit:
+                break
+            case .deleted:
+                break
+            }
         }
     }
     
