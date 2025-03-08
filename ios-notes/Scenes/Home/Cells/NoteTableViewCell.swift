@@ -38,8 +38,9 @@ class NoteTableViewCell: UITableViewCell {
 }
 
 extension NoteTableViewCell {
-    func configCell(note: Note, searchKey: String?) {
-        let content = note.content?.trimmingLeadingWhitespaceAndNewlines()
+    func configCell(note: Note, searchKey: String? = nil) {
+        var content = note.content?.trimmingLeadingWhitespaceAndNewlines()
+        content = (content ?? "").isEmpty ?  "No additional text" : content
         if let searchKey = searchKey, !searchKey.isEmpty {
             titleLabel.attributedText = highlightText(note.title, searchKey: searchKey)
             contentLabel.attributedText = highlightText(content, searchKey: searchKey)
@@ -71,4 +72,3 @@ extension NoteTableViewCell {
         return attributedString
     }
 }
-

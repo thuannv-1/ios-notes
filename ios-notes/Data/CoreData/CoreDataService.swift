@@ -90,9 +90,9 @@ extension CoreDataService {
         }
     }
     
-    func updateNote(currentNote: Note, newNote: Note) -> Observable<Note> {
+    func updateNote(currentNote: Note?, newNote: Note) -> Observable<Note> {
         .create { observable in
-            guard let currentEntity = currentNote.rawValue else {
+            guard let currentEntity = currentNote?.rawValue else {
                 observable.onCompleted()
                 return Disposables.create()
             }

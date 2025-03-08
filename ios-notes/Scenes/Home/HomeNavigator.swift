@@ -19,14 +19,14 @@ struct HomeNavigator: NavigatorType {
 
 extension HomeNavigator: HomeNavigatorType {
     func addNewNote() {
-        AppAssembler.buildNoteDetail(
+        Assembler.buildNoteDetail(
             navigationController: navigationController,
             mode: .addNew
         )
     }
     
     func toNoteDetail(data: Note) {
-        AppAssembler.buildNoteDetail(
+        Assembler.buildNoteDetail(
             navigationController: navigationController,
             mode: .edit,
             note: data
@@ -34,6 +34,6 @@ extension HomeNavigator: HomeNavigatorType {
     }
     
     func toRecycleBin() {
-        print(#function)
+        Assembler.buildTrash(navigationController: navigationController)
     }
 }

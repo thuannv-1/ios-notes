@@ -29,11 +29,13 @@ extension NoteDetailViewModel: ViewModelType {
         let textTrigger: Driver<String?>
         let saveTrigger: Driver<Void>
         let deleteTrigger: Driver<Void>
+        let revertTrigger: Driver<Void>
     }
     
     struct Output {
         let mode: Driver<NoteDetailMode>
-        let currentNote: Driver<Note>
+        let currentNote: Driver<Note?>
+        let isContentChanged: Driver<Bool>
         let voidActions: Driver<Void>
     }
     
@@ -43,20 +45,23 @@ extension NoteDetailViewModel: ViewModelType {
         
         let currentNote = input.loadTrigger
             .map { note }
-            .unwrap()
         
-        let newNote = input.saveTrigger
-            .withLatestFrom(input.textTrigger)
+        let newNote = input.textTrigger
             .map { $0?.toNote() }
             .unwrap()
         
-//        let activeSave = Driver.combineLatest(
-//            currentNote,
-//            newNote
-//        )
-//            .map { return $0.fullContent != $1.fullContent }
+        let combineNotes = Driver.combineLatest(
+            currentNote,
+            newNote
+        )
         
-        let addNew = newNote
+        let isContentChanged = combineNotes
+            .map {
+                return $0?.fullContent != $1.fullContent
+            }
+        
+        let addNew = input.saveTrigger
+            .withLatestFrom(newNote)
             .filter { _ in mode == .addNew }
             .flatMapLatest {
                 useCase.addNote(note: $0)
@@ -65,18 +70,44 @@ extension NoteDetailViewModel: ViewModelType {
             .do { _ in navigator.pop() }
             .mapToVoid()
         
-        let edit = newNote
+        let edit = input.saveTrigger
+            .withLatestFrom(combineNotes)
             .filter { _ in mode == .edit }
             .flatMapLatest {
-                useCase.updateNote(note: $0)
+                useCase.updateNote(currentNote: $0.0, newNote: $0.1)
                     .asDriverOnErrorJustComplete()
             }
+            .do { _ in navigator.pop() }
             .mapToVoid()
         
-        let delete = input.deleteTrigger
+        let deleteNote = input.deleteTrigger
             .withLatestFrom(currentNote)
+            .unwrap()
+        
+        let softDelete = deleteNote
+            .filter { _ in mode == .edit }
             .flatMapLatest {
                 useCase.softDelete(note: $0)
+                    .asDriverOnErrorJustComplete()
+            }
+            .do { _ in navigator.pop() }
+            .mapToVoid()
+        
+        let forceDelete = deleteNote
+            .filter { _ in mode == .deleted }
+            .flatMapLatest {
+                useCase.forceDelete(note: $0)
+                    .asDriverOnErrorJustComplete()
+            }
+            .do { _ in navigator.pop() }
+            .mapToVoid()
+        
+        let revert = input.revertTrigger
+            .filter { mode == .deleted }
+            .withLatestFrom(currentNote)
+            .unwrap()
+            .flatMapLatest {
+                useCase.revert(note: $0)
                     .asDriverOnErrorJustComplete()
             }
             .do { _ in navigator.pop() }
@@ -85,12 +116,15 @@ extension NoteDetailViewModel: ViewModelType {
         let voidActions = Driver<Void>.merge(
             addNew,
             edit,
-            delete
+            softDelete,
+            forceDelete,
+            revert
         )
         
         return Output(
             mode: currentMode,
             currentNote: currentNote,
+            isContentChanged: isContentChanged,
             voidActions: voidActions
         )
     }

@@ -16,6 +16,11 @@
 		3E58F33C2D7BE5FD0048A694 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F33B2D7BE5FB0048A694 /* String+.swift */; };
 		3E58F33E2D7BECB50048A694 /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F33D2D7BECAD0048A694 /* AppAssembler.swift */; };
 		3E58F3412D7BFD2E0048A694 /* NoteEntity+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3402D7BFD2C0048A694 /* NoteEntity+.swift */; };
+		3E58F3462D7C0EF90048A694 /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3442D7C0EF90048A694 /* TrashViewController.swift */; };
+		3E58F3472D7C0EF90048A694 /* TrashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E58F3452D7C0EF90048A694 /* TrashViewController.xib */; };
+		3E58F3492D7C0F060048A694 /* TrashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3482D7C0F060048A694 /* TrashViewModel.swift */; };
+		3E58F34B2D7C0F0F0048A694 /* TrashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F34A2D7C0F0F0048A694 /* TrashUseCase.swift */; };
+		3E58F34D2D7C0F150048A694 /* TrashNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F34C2D7C0F150048A694 /* TrashNavigator.swift */; };
 		3E7CB0D72D79F58F0083F15D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB0BE2D79F58F0083F15D /* HomeViewController.xib */; };
 		3E7CB0D82D79F58F0083F15D /* NoteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB0C42D79F58F0083F15D /* NoteDetailViewController.xib */; };
 		3E7CB0D92D79F58F0083F15D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB0CF2D79F58F0083F15D /* Assets.xcassets */; };
@@ -80,6 +85,11 @@
 		3E58F33B2D7BE5FB0048A694 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3E58F33D2D7BECAD0048A694 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
 		3E58F3402D7BFD2C0048A694 /* NoteEntity+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEntity+.swift"; sourceTree = "<group>"; };
+		3E58F3442D7C0EF90048A694 /* TrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
+		3E58F3452D7C0EF90048A694 /* TrashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrashViewController.xib; sourceTree = "<group>"; };
+		3E58F3482D7C0F060048A694 /* TrashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewModel.swift; sourceTree = "<group>"; };
+		3E58F34A2D7C0F0F0048A694 /* TrashUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashUseCase.swift; sourceTree = "<group>"; };
+		3E58F34C2D7C0F150048A694 /* TrashNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashNavigator.swift; sourceTree = "<group>"; };
 		3E7CB0352D79ECCC0083F15D /* ios-notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7CB04E2D79ECCE0083F15D /* ios-notesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-notesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7CB0582D79ECCE0083F15D /* ios-notesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-notesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +186,18 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		3E58F3432D7C0EDB0048A694 /* Trash */ = {
+			isa = PBXGroup;
+			children = (
+				3E58F3442D7C0EF90048A694 /* TrashViewController.swift */,
+				3E58F3452D7C0EF90048A694 /* TrashViewController.xib */,
+				3E58F3482D7C0F060048A694 /* TrashViewModel.swift */,
+				3E58F34A2D7C0F0F0048A694 /* TrashUseCase.swift */,
+				3E58F34C2D7C0F150048A694 /* TrashNavigator.swift */,
+			);
+			path = Trash;
+			sourceTree = "<group>";
+		};
 		3E7CB02C2D79ECCC0083F15D = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +274,7 @@
 				3E7CB0B72D79F58F0083F15D /* App */,
 				3E7CB0C02D79F58F0083F15D /* Home */,
 				3E7CB0C62D79F58F0083F15D /* NoteDetail */,
+				3E58F3432D7C0EDB0048A694 /* Trash */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -503,6 +526,7 @@
 			files = (
 				3E7CB0D72D79F58F0083F15D /* HomeViewController.xib in Resources */,
 				3E7CB0D82D79F58F0083F15D /* NoteDetailViewController.xib in Resources */,
+				3E58F3472D7C0EF90048A694 /* TrashViewController.xib in Resources */,
 				3E7CB0D92D79F58F0083F15D /* Assets.xcassets in Resources */,
 				3E7CB1102D7A02DB0083F15D /* NoteHeaderView.xib in Resources */,
 				3E7CB1032D79FAE70083F15D /* NoteTableViewCell.xib in Resources */,
@@ -643,11 +667,14 @@
 				3E58F3362D7B20640048A694 /* UISearchBar+.swift in Sources */,
 				3E7CB0DF2D79F58F0083F15D /* BaseViewController.swift in Sources */,
 				3E7CB0E02D79F58F0083F15D /* NavigatorType.swift in Sources */,
+				3E58F3462D7C0EF90048A694 /* TrashViewController.swift in Sources */,
 				3E7CB0E12D79F58F0083F15D /* HomeNavigator.swift in Sources */,
+				3E58F3492D7C0F060048A694 /* TrashViewModel.swift in Sources */,
 				3E58F3412D7BFD2E0048A694 /* NoteEntity+.swift in Sources */,
 				3E58F3342D7B02580048A694 /* UITextView+.swift in Sources */,
 				3E58F33E2D7BECB50048A694 /* AppAssembler.swift in Sources */,
 				3E7CB0E22D79F58F0083F15D /* HomeUseCase.swift in Sources */,
+				3E58F34D2D7C0F150048A694 /* TrashNavigator.swift in Sources */,
 				3E7CB0F72D79F6730083F15D /* CoreDataService.swift in Sources */,
 				3E58F32A2D7ADB030048A694 /* UIView+.swift in Sources */,
 				3E7CB0E32D79F58F0083F15D /* HomeViewController.swift in Sources */,
@@ -658,6 +685,7 @@
 				3E7CB0E82D79F58F0083F15D /* NoteDetailViewModel.swift in Sources */,
 				3E7CB0E92D79F58F0083F15D /* BindableType.swift in Sources */,
 				3E7CB0EA2D79F58F0083F15D /* Driver+.swift in Sources */,
+				3E58F34B2D7C0F0F0048A694 /* TrashUseCase.swift in Sources */,
 				3E58F33C2D7BE5FD0048A694 /* String+.swift in Sources */,
 				3E7CB10A2D7A02850083F15D /* NoteHeaderView.swift in Sources */,
 				3E7CB0EB2D79F58F0083F15D /* ObservableType+.swift in Sources */,

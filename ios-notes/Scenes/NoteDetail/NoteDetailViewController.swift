@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import Then
 
-class NoteDetailViewController: BaseViewController {
+final class NoteDetailViewController: BaseViewController {
     
     @IBOutlet private weak var inputTextView: UITextView!
     
@@ -34,10 +34,18 @@ class NoteDetailViewController: BaseViewController {
             action: nil
         )
         button.tintColor = .systemOrange
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 17.0, weight: .semibold)
-        ]
-        button.setTitleTextAttributes(attributes, for: .normal)
+        return button
+    }()
+    
+    private lazy var revertButton: UIBarButtonItem = {
+        let icon = UIImage(systemName: "arrow.counterclockwise.circle")
+        let button = UIBarButtonItem(
+            image: icon,
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+        button.tintColor = UIColor.systemOrange
         return button
     }()
     
@@ -50,9 +58,10 @@ class NoteDetailViewController: BaseViewController {
     }
     
     private func setupUI() {
-        navigationItem.rightBarButtonItems = [saveButton, deleteButton]
+        navigationItem.rightBarButtonItems = [revertButton, saveButton, deleteButton]
         
         inputTextView.do {
+            $0.tintColor = .systemOrange
             $0.font = .boldSystemFont(ofSize: 24)
             $0.delegate = self
             $0.autocorrectionType = .no
@@ -65,10 +74,17 @@ class NoteDetailViewController: BaseViewController {
             $0.applyTitleStyling()
         }
     }
+    
+    private func setupSaveButton(isActive: Bool) {
+        saveButton.tintColor = isActive ? .systemOrange : .systemGray
+        saveButton.isEnabled = isActive
+    }
 }
 
+// MARK: - BindableType
 extension NoteDetailViewController: BindableType {
     func bindViewModel() {
+        
         let textTrigger = inputTextView.rx.text
             .distinctUntilChanged()
             .asDriverOnErrorJustComplete()
@@ -79,11 +95,15 @@ extension NoteDetailViewController: BindableType {
         let deleteTrigger = deleteButton.rx.tap
             .asDriver()
         
+        let revertTrigger = revertButton.rx.tap
+            .asDriver()
+        
         let input = NoteDetailViewModel.Input(
             loadTrigger: .just(()),
             textTrigger: textTrigger,
             saveTrigger: saveTrigger,
-            deleteTrigger: deleteTrigger
+            deleteTrigger: deleteTrigger,
+            revertTrigger: revertTrigger
         )
         
         let output = viewModel.transform(input)
@@ -94,6 +114,10 @@ extension NoteDetailViewController: BindableType {
         
         output.currentNote
             .drive(currentNoteBinder)
+            .disposed(by: disposeBag)
+        
+        output.isContentChanged
+            .drive(isContentChangedBinder)
             .disposed(by: disposeBag)
         
         output.voidActions
@@ -114,10 +138,11 @@ extension NoteDetailViewController: BindableType {
     }
 }
 
+// MARK: - Binders
 extension NoteDetailViewController {
-    private var currentNoteBinder: Binder<Note> {
+    private var currentNoteBinder: Binder<Note?> {
         Binder(self) { vc, data in
-            vc.inputTextView.text = data.fullContent
+            vc.inputTextView.text = data?.fullContent
             vc.inputTextView.applyTitleStyling()
         }
     }
@@ -127,11 +152,23 @@ extension NoteDetailViewController {
             switch mode {
             case .addNew:
                 vc.deleteButton.isHidden = true
+                vc.revertButton.isHidden = true
+                vc.setupSaveButton(isActive: false)
+                
             case .edit:
-                break
+                vc.revertButton.isHidden = true
+                
             case .deleted:
-                break
+                vc.saveButton.isHidden = true
+                vc.inputTextView.isEditable = false
+                
             }
+        }
+    }
+    
+    private var isContentChangedBinder: Binder<Bool> {
+        Binder(self) { vc, isChanged in
+            vc.setupSaveButton(isActive: isChanged)
         }
     }
     
@@ -151,8 +188,12 @@ extension NoteDetailViewController {
     }
 }
 
+// MARK: - UITextViewDelegate
 extension NoteDetailViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            setupSaveButton(isActive: false)
+        }
         textView.applyTitleStyling()
         let range = NSMakeRange(textView.text.count - 1, 1)
         textView.scrollRangeToVisible(range)

@@ -7,7 +7,19 @@
 
 import UIKit
 
-struct AppAssembler {
+struct Assembler {
+    static func buildHome(window: UIWindow) {
+        let navigationController = UINavigationController()
+        let navigator = HomeNavigator(navigationController: navigationController)
+        let useCase = HomeUseCase()
+        let vm = HomeViewModel(navigator: navigator, useCase: useCase)
+        let vc = HomeViewController()
+        vc.bindViewModel(to: vm)
+        navigationController.pushViewController(vc, animated: false)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+    }
+    
     static func buildNoteDetail(navigationController: UINavigationController,
                                 mode: NoteDetailMode,
                                 note: Note? = nil) {
@@ -20,6 +32,18 @@ struct AppAssembler {
             note: note
         )
         let vc = NoteDetailViewController()
+        vc.bindViewModel(to: vm)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    static func buildTrash(navigationController: UINavigationController) {
+        let useCase = TrashUseCase()
+        let navigator = TrashNavigator(navigationController: navigationController)
+        let vm = TrashViewModel(
+            navigator: navigator,
+            useCase: useCase
+        )
+        let vc = TrashViewController()
         vc.bindViewModel(to: vm)
         navigationController.pushViewController(vc, animated: true)
     }

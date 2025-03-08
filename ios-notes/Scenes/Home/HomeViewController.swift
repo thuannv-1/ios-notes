@@ -9,11 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class HomeViewController: BaseViewController {
+final class HomeViewController: BaseViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var addNewNoteButton: UIButton!
+    @IBOutlet private weak var emptyLabel: UILabel!
     
     private let recycleBinButton: UIBarButtonItem = {
         let button = UIBarButtonItem(
@@ -42,7 +43,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-
+        
     }
     
     private func setupUI() {
@@ -78,6 +79,32 @@ class HomeViewController: BaseViewController {
             $0.clipsToBounds = true
             $0.tintColor = .white
             $0.applyShadow()
+        }
+        
+        setupEmtpyLabel()
+    }
+    
+    private func setupEmtpyLabel() {
+        let text = "Add notes by clicking the "
+        let buttonText = " button below"
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "square.and.pencil")?.withTintColor(.systemOrange)
+        let attributedString = NSMutableAttributedString(string: text, attributes: [
+            .foregroundColor: UIColor.secondaryLabel
+        ])
+        
+        let imageString = NSAttributedString(attachment: imageAttachment)
+        let buttonAttributedString = NSAttributedString(string: buttonText, attributes: [
+            .foregroundColor: UIColor.secondaryLabel
+        ])
+        attributedString.append(imageString)
+        attributedString.append(buttonAttributedString)
+        
+        emptyLabel.do {
+            $0.textAlignment = .center
+            $0.numberOfLines = 0
+            $0.attributedText = attributedString
+            $0.isHidden = true
         }
     }
 }
@@ -128,6 +155,7 @@ extension HomeViewController {
     private var dataSourceBinder: Binder<[NoteSection]> {
         Binder(self) { vc, data in
             vc.dataSource = data
+            vc.emptyLabel.isHidden = !data.isEmpty
         }
     }
 }
