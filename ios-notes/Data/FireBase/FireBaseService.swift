@@ -10,20 +10,19 @@ import RxSwift
 import FirebaseCore
 import FirebaseFirestore
 
-struct FirebaseService {
-    
-    static let shared = FirebaseService()
-    
+protocol FirebaseServiceType {
+    func getNotes() -> Observable<[Note]>
+    func saveSyncNotes(_ notes: [Note])
+}
+
+struct FirebaseService { }
+
+extension FirebaseService: FirebaseServiceType {
     func getNotes() -> Observable<[Note]> {
         return Observable.create { observer in
             Firestore.firestore().collection("notes-collection")
                 .document("5zwvvSCPmciO0UhAOQiM")
-                .getDocument { (document, error) in
-                    if let error = error {
-                        observer.onError(error)
-                        return
-                    }
-                    
+                .getDocument { (document, _) in
                     guard let document = document, document.exists else {
                         observer.onNext([])
                         observer.onCompleted()
@@ -61,26 +60,6 @@ struct FirebaseService {
             } else {
                 print("Notes saved successfully!")
             }
-        }
-    }
-}
-
-extension Array where Element == [String: Any] {
-    func mapToNotes() -> [Note] {
-        return self.compactMap { dict in
-            let id = dict["id"] as? String
-            let title = dict["title"] as? String
-            let content = dict["content"] as? String
-            let updatedAt = dict["updatedAt"] as? String
-            let deletedAt = dict["deletedAt"] as? String
-            
-            return Note(
-                id: id,
-                title: title,
-                content: content,
-                updatedAt: updatedAt?.toDate(format: .dayMonthYearHour),
-                deletedAt: deletedAt?.toDate(format: .dayMonthYearHour)
-            )
         }
     }
 }

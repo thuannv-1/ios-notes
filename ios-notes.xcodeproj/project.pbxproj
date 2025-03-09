@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F44598482D6354D400FF8F8 /* Pods_ios_notes_ios_notesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B1D1FC42E37A13D26F71B4 /* Pods_ios_notes_ios_notesUITests.framework */; };
+		3E0D03692D7D33BB0090CF61 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D03682D7D33B10090CF61 /* ServiceProvider.swift */; };
+		3E0D036B2D7D34020090CF61 /* Arrray+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D036A2D7D33FE0090CF61 /* Arrray+.swift */; };
 		3E58F3282D7ADA3E0048A694 /* Note+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3272D7ADA3B0048A694 /* Note+.swift */; };
 		3E58F32A2D7ADB030048A694 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3292D7ADAFE0048A694 /* UIView+.swift */; };
 		3E58F3322D7AFD120048A694 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3312D7AFD100048A694 /* UITableViewCell+.swift */; };
@@ -83,6 +85,8 @@
 
 /* Begin PBXFileReference section */
 		3D991ACCA51B4CB7F53D0B82 /* Pods-ios-notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-notes.debug.xcconfig"; path = "Target Support Files/Pods-ios-notes/Pods-ios-notes.debug.xcconfig"; sourceTree = "<group>"; };
+		3E0D03682D7D33B10090CF61 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		3E0D036A2D7D33FE0090CF61 /* Arrray+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrray+.swift"; sourceTree = "<group>"; };
 		3E58F3272D7ADA3B0048A694 /* Note+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+.swift"; sourceTree = "<group>"; };
 		3E58F3292D7ADAFE0048A694 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		3E58F3312D7AFD100048A694 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				3E58F33B2D7BE5FB0048A694 /* String+.swift */,
 				3EDF4FF52D7C6C2B00BE560E /* Date+String.swift */,
 				3EDF4FF32D7C6B4A00BE560E /* String+Date.swift */,
+				3E0D036A2D7D33FE0090CF61 /* Arrray+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 		3E58F33F2D7BF8040048A694 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3E0D03682D7D33B10090CF61 /* ServiceProvider.swift */,
 				3ED37C4A2D7C279B00BB2094 /* FireBase */,
 				3E7CB0F52D79F6430083F15D /* CoreData */,
 			);
@@ -686,10 +692,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E58F3322D7AFD120048A694 /* UITableViewCell+.swift in Sources */,
+				3E0D036B2D7D34020090CF61 /* Arrray+.swift in Sources */,
 				3EDF4FF62D7C6C3300BE560E /* Date+String.swift in Sources */,
 				3E7CB0DC2D79F58F0083F15D /* AppNavigator.swift in Sources */,
 				3E7CB0DD2D79F58F0083F15D /* AppUseCase.swift in Sources */,
 				3E58F3282D7ADA3E0048A694 /* Note+.swift in Sources */,
+				3E0D03692D7D33BB0090CF61 /* ServiceProvider.swift in Sources */,
 				3E7CB1072D79FB3D0083F15D /* Note.swift in Sources */,
 				3E7CB0DE2D79F58F0083F15D /* AppViewModel.swift in Sources */,
 				3E58F3362D7B20640048A694 /* UISearchBar+.swift in Sources */,

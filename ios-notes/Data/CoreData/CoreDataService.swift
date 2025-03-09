@@ -9,11 +9,15 @@ import CoreData
 import UIKit
 import RxSwift
 
+protocol CoreDataServiceType {
+    func addNote(note: Note) -> Observable<Note>
+    func fetchNotes() -> Observable<[Note]>
+    func deleteNote(note: Note) -> Observable<Bool>
+    func updateNote(note: Note) -> Observable<Note>
+    func saveSyncNotes(_ notes: [Note])
+}
+
 struct CoreDataService {
-    static let shared = CoreDataService()
-    
-    private init() {}
-    
     private var context: NSManagedObjectContext {
         return Self.persistentContainer.viewContext
     }
@@ -29,7 +33,7 @@ struct CoreDataService {
     }()
 }
 
-extension CoreDataService {
+extension CoreDataService: CoreDataServiceType {
     func addNote(note: Note) -> Observable<Note> {
         .create { observable in
             let entity = NoteEntity(context: context)
@@ -113,9 +117,7 @@ extension CoreDataService {
             return Disposables.create()
         }
     }
-}
-
-extension CoreDataService {
+    
     func saveSyncNotes(_ notes: [Note]) {
         let context = self.context
         let fetchRequest: NSFetchRequest<NoteEntity> = NoteEntity.fetchRequest()
@@ -148,4 +150,3 @@ extension CoreDataService {
         }
     }
 }
-

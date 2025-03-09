@@ -18,15 +18,18 @@ protocol HomeUseCaseType {
                             notes: [Note]) -> Observable<[NoteSection]>
 }
 
-struct HomeUseCase { }
+struct HomeUseCase {
+    let coreDataService: CoreDataServiceType
+    let fireBaseService: FirebaseServiceType
+}
 
 extension HomeUseCase: HomeUseCaseType {
     func getNotes() -> Observable<[Note]> {
-        CoreDataService.shared.fetchNotes()
+        coreDataService.fetchNotes()
     }
     
     func getRemoteNotes() -> Observable<[Note]> {
-        return FirebaseService.shared.getNotes()
+        fireBaseService.getNotes()
     }
     
     func generateDataSource(searchKey: String?,
@@ -79,7 +82,7 @@ extension HomeUseCase: HomeUseCaseType {
     }
     
     func saveSyncNotes(notes: [Note]) {
-        CoreDataService.shared.saveSyncNotes(notes)
-        FirebaseService.shared.saveSyncNotes(notes)
+        coreDataService.saveSyncNotes(notes)
+        fireBaseService.saveSyncNotes(notes)
     }
 }

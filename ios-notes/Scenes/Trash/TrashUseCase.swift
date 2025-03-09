@@ -13,11 +13,13 @@ protocol TrashUseCaseType {
     func generateDataSource(notes: [Note]) -> Observable<[NoteSection]>
 }
 
-struct TrashUseCase { }
+struct TrashUseCase {
+    let coreDataService: CoreDataServiceType
+}
 
 extension TrashUseCase: TrashUseCaseType {
     func getNotes() -> Observable<[Note]> {
-        CoreDataService.shared.fetchNotes()
+        coreDataService.fetchNotes()
             .map { $0.filterDeleted() }
     }
     

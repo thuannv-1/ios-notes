@@ -11,7 +11,10 @@ struct Assembler {
     static func buildHome(window: UIWindow) {
         let navigationController = UINavigationController()
         let navigator = HomeNavigator(navigationController: navigationController)
-        let useCase = HomeUseCase()
+        let useCase = HomeUseCase(
+            coreDataService: ServiceProvider.loadService(),
+            fireBaseService: ServiceProvider.loadService()
+        )
         let vm = HomeViewModel(navigator: navigator, useCase: useCase)
         let vc = HomeViewController()
         vc.bindViewModel(to: vm)
@@ -23,7 +26,9 @@ struct Assembler {
     static func buildNoteDetail(navigationController: UINavigationController,
                                 mode: NoteDetailMode,
                                 note: Note? = nil) {
-        let useCase = NoteDetailUseCase()
+        let useCase = NoteDetailUseCase(
+            coreDataService: ServiceProvider.loadService()
+        )
         let navigator = NoteDetailNavigator(navigationController: navigationController)
         let vm = NoteDetailViewModel(
             navigator: navigator,
@@ -37,7 +42,9 @@ struct Assembler {
     }
     
     static func buildTrash(navigationController: UINavigationController) {
-        let useCase = TrashUseCase()
+        let useCase = TrashUseCase(
+            coreDataService: ServiceProvider.loadService()
+        )
         let navigator = TrashNavigator(navigationController: navigationController)
         let vm = TrashViewModel(
             navigator: navigator,

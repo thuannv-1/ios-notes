@@ -16,30 +16,32 @@ protocol NoteDetailUseCaseType {
     func revert(note: Note) -> Observable<Note>
 }
 
-struct NoteDetailUseCase { }
+struct NoteDetailUseCase {
+    let coreDataService: CoreDataServiceType
+}
 
 extension NoteDetailUseCase: NoteDetailUseCaseType {
     func addNote(note: Note) -> Observable<Note> {
-        CoreDataService.shared.addNote(note: note)
+        coreDataService.addNote(note: note)
     }
     
     func updateNote(note: Note) -> Observable<Note> {
-        CoreDataService.shared.updateNote(note: note)
+        coreDataService.updateNote(note: note)
     }
     
     func softDelete(note: Note) -> Observable<Note> {
         var newNote = note
         newNote.deletedAt = Date()
-        return CoreDataService.shared.updateNote(note: newNote)
+        return coreDataService.updateNote(note: newNote)
     }
     
     func forceDelete(note: Note) -> Observable<Bool> {
-        CoreDataService.shared.deleteNote(note: note)
+        coreDataService.deleteNote(note: note)
     }
     
     func revert(note: Note) -> Observable<Note> {
         var note = note
         note.deletedAt = nil
-        return CoreDataService.shared.updateNote(note: note)
+        return coreDataService.updateNote(note: note)
     }
 }
