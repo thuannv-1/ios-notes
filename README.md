@@ -40,6 +40,8 @@ Required: Xcode 16.2
 ![App Screenshot](path-to-screenshot.png)
 
 ### Load all notes
+![image](https://github.com/user-attachments/assets/20628242-0c78-4f9a-b423-9c907bf2f15c)
+
 ### Create New Note
 ### Update an existing note
 ### Delete note
