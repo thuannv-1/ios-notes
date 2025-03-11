@@ -20,7 +20,7 @@ A simple yet powerful notes-taking application built with SwiftUI and Core Data,
 <img width="490" alt="image" src="https://github.com/user-attachments/assets/8726dc0d-c789-4a38-bf25-442ddd8f6574" />
 
 - **Testing:** XCTest (Unit & UI Testing)
-## Folder Tree
+## 🗄️ Folder Tree
 📂 ios-notes
 ├── 📁 Data
 │   ├── ServiceProvider.swift
