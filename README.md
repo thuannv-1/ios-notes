@@ -124,5 +124,11 @@ https://github.com/user-attachments/assets/c2f5daa9-f7bc-495a-a684-730eb0a08696
 Khi user nhập từ khoá vào Search Bar tại màn Home, sẽ filter dự trên danh sách notes của user từ DB => nếu có từ khoá match sẽ được highlight qua hàm highlightText trong NoteTableViewCell
 
 ## 🔮 Testing
+- Unit Tests for ViewModel logic.
+- Run tests using:
+  ```sh
+  cmd + U (in Xcode)
+  ```
+![image](https://github.com/user-attachments/assets/836a3992-3528-44e5-b0c6-1c10f79efe0d)
 
 
