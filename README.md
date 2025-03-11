@@ -131,4 +131,6 @@ Khi user nhập từ khoá vào Search Bar tại màn Home, sẽ filter dự tr�
   ```
 ![image](https://github.com/user-attachments/assets/836a3992-3528-44e5-b0c6-1c10f79efe0d)
 
-
+## 🎯 Future Improvements
+- Multi-device sync via CloudKit.
+- Rich text support for notes.
