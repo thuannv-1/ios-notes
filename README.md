@@ -68,8 +68,7 @@ https://github.com/user-attachments/assets/2ea4769a-5776-44a6-9f36-212726c71a6f
 
 #### How to develop?
 Use CoreData to store local data, Firebase to store online data. Every time the app opens, the home screen appears, the user pulls down => Immediately triggers calling data from remote and local. Then, this data is mixed by the prepareSyncNotes function. The mixed data will be displayed to the user, and saved to CoreData & Firebase.
-![image](https://github.com/user-attachments/assets/20628242-0c78-4f9a-b423-9c907bf2f15c)
-
+<img width="991" alt="image" src="https://github.com/user-attachments/assets/45d3dd28-f6b7-4ab8-a57e-5821739ac5cc" />
 
 ### ✅ Create New Note
 #### Usage
