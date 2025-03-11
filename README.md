@@ -88,7 +88,7 @@ https://github.com/user-attachments/assets/19d540bf-2775-4a4f-9ba4-dca1f8b0ad13
 On Note Detail Screen, after the user clicks the "Save" button => Note will be saved immediately to CoreData. After that, utomatically pops back to Home. On the Home screen, data will be synchronized to FireBase
 
 ### ✅ Delete note
-#### Soft Delete
+#### ✅ Soft Delete
 ##### Usage
 Select the note you want to delete on the Home screen. On the detail information screen, click the trash icon to "Soft Delete" the note 
 
@@ -100,7 +100,7 @@ https://github.com/user-attachments/assets/55abf78a-4e17-449c-9cae-c8d191a6acce
 ##### How to developement?
 When the user clicks the "Trash" button on an existing note, the deletedAt field will be updated immediately. The filtered Trash screen only displays Notes with deletedAt != nil
 
-#### Force Delete
+#### ✅ Force Delete
 Usage: When you select a Note inside the trash, you continue to delete. That Note will disappear completely.
 
 
@@ -111,7 +111,7 @@ https://github.com/user-attachments/assets/11a0dbc2-5108-4e86-a144-d7da3dc574f3
 ##### How to developement?
 When force deleting Note, Note will be removed from DB
 
-### Search note
+### ✅ Search Notes
 ##### Usage
 Click on Search Bar on the Home screen, enter the keyword you want to search => The system will return a list of Notes matching the keyword being searched and highlight the characters matching the keyword being searched.
 
