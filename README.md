@@ -66,25 +66,25 @@ When opening the main screen, all notes will be displayed, users can pull down t
 https://github.com/user-attachments/assets/2ea4769a-5776-44a6-9f36-212726c71a6f
 
 
-#### How to developement?
+#### How to develop?
 Use CoreData to store local data, Firebase to store online data. Every time the app opens, the home screen appears, the user pulls down => Immediately triggers calling data from remote and local. Then, this data is mixed by the prepareSyncNotes function. The mixed data will be displayed to the user, and saved to CoreData & Firebase.
 ![image](https://github.com/user-attachments/assets/20628242-0c78-4f9a-b423-9c907bf2f15c)
 
 
 ### ✅ Create New Note
 #### Usage
-Click the "Pencil" button in the lower right corner of the screen to create a new note. Click "Save" after successfully entering data. The first line of the note will be the title, the next lines will be the content.
+Click the "Pencil" button in the lower right corner of the screen to create a new note. After entering data, click 'Save' button. The first line of the note will be the title, the next lines will be the content.
 
 https://github.com/user-attachments/assets/3c1077c6-2a97-4ada-aee7-7c56aff3887b
-#### How to developement?
-Use UITextView to allow users to enter information. The applyTitleStyling function is responsible for bolding the first line as the title. After the user clicks the "Save" button => Note will be saved immediately to CoreData. After that, utomatically pops back to Home. On the Home screen, data will be synchronized to FireBase
+#### How to develop?
+Use UITextView to allow users to enter information. The applyTitleStyling function is responsible for bolding the first line as the title. After the user clicks the "Save" button => Note will be saved immediately to CoreData. After that, automatically pops back to Home. On the Home screen, data will be synchronized to FireBase
 
 ### ✅ Update an existing note
 #### Usage
 Select a note on the Home screen to view Note details, here you can edit the note. After editing is complete, click the "Save" button to save the note.
 
 https://github.com/user-attachments/assets/19d540bf-2775-4a4f-9ba4-dca1f8b0ad13
-#### How to developement?
+#### How to develop?
 On Note Detail Screen, after the user clicks the "Save" button => Note will be saved immediately to CoreData. After that, utomatically pops back to Home. On the Home screen, data will be synchronized to FireBase
 
 ### ✅ Delete note
@@ -97,7 +97,7 @@ https://github.com/user-attachments/assets/55abf78a-4e17-449c-9cae-c8d191a6acce
 
 
 
-##### How to developement?
+##### How to develop?
 When the user clicks the "Trash" button on an existing note, the deletedAt field will be updated immediately. The filtered Trash screen only displays Notes with deletedAt != nil
 
 #### ✅ Force Delete
@@ -108,7 +108,7 @@ https://github.com/user-attachments/assets/11a0dbc2-5108-4e86-a144-d7da3dc574f3
 
 
 
-##### How to developement?
+##### How to develop?
 When force deleting Note, Note will be removed from DB
 
 ### ✅ Search Notes
@@ -120,7 +120,7 @@ https://github.com/user-attachments/assets/c2f5daa9-f7bc-495a-a684-730eb0a08696
 
 
 
-##### How to developement?
+##### How to develop?
 Khi user nhập từ khoá vào Search Bar tại màn Home, sẽ filter dự trên danh sách notes của user từ DB => nếu có từ khoá match sẽ được highlight qua hàm highlightText trong NoteTableViewCell
 
 ## 🔮 Testing
