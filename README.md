@@ -17,7 +17,7 @@ A simple yet powerful notes-taking application built with SwiftUI and Core Data,
 - **Frameworks:** UIKit
 - **Storage:** Core Data, FirebaseDatabase
 - **Architecture:** MVVM, Clean Architecture
-<img width="490" alt="image" src="https://github.com/user-attachments/assets/8726dc0d-c789-4a38-bf25-442ddd8f6574" />
+<img width="489" alt="Screenshot 2025-03-11 at 21 16 45" src="https://github.com/user-attachments/assets/e4fb853a-62a8-451f-964b-ddf8b6bd48fd" />
 
 - **Testing:** XCTest (Unit & UI Testing)
 ## 📂 Project Structure
@@ -68,7 +68,8 @@ https://github.com/user-attachments/assets/2ea4769a-5776-44a6-9f36-212726c71a6f
 
 #### How to develop?
 Use CoreData to store local data, Firebase to store online data. Every time the app opens, the home screen appears, the user pulls down => Immediately triggers calling data from remote and local. Then, this data is mixed by the prepareSyncNotes function. The mixed data will be displayed to the user, and saved to CoreData & Firebase.
-<img width="991" alt="image" src="https://github.com/user-attachments/assets/45d3dd28-f6b7-4ab8-a57e-5821739ac5cc" />
+<img width="735" alt="Screenshot 2025-03-11 at 21 17 19" src="https://github.com/user-attachments/assets/67780487-7cb0-46b5-8c03-c92e50739d7f" />
+
 
 ### ✅ Create New Note
 #### Usage
