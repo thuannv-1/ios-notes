@@ -17,6 +17,8 @@ A simple yet powerful notes-taking application built with SwiftUI and Core Data,
 - **Frameworks:** UIKit
 - **Storage:** Core Data, FirebaseDatabase
 - **Architecture:** MVVM, Clean Architecture
+<img width="490" alt="image" src="https://github.com/user-attachments/assets/8726dc0d-c789-4a38-bf25-442ddd8f6574" />
+
 - **Testing:** XCTest (Unit & UI Testing)
 
 ## 📥 Installation & Setup
@@ -44,9 +46,14 @@ Required: Xcode 16.2
 - When opening the main screen, all notes will be displayed, users can pull down to refresh to get the latest notes from online. The displayed notes will be grouped by day.
 - Video Demo
 
+
+
+
 ### Create New Note
 - Click the "Pencil" button in the lower right corner of the screen to create a new note. Click "Save" after successfully entering data. The first line of the note will be the title, the next lines will be the content.
-- Video Demo
+https://github.com/user-attachments/assets/ff939e46-aaf6-4353-ae14-245bd395fe28
+
+
 
 ### Update an existing note
 - Select a note on the Home screen to view Note details, here you can edit the note. After editing is complete, click the "Save" button to save the note.
