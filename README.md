@@ -74,17 +74,38 @@ On Note Detail Screen, after the user clicks the "Save" button => Note will be s
 #### Soft Delete
 ##### Usage
 Select the note you want to delete on the Home screen. On the detail information screen, click the trash icon to "Soft Delete" the note 
-https://github.com/user-attachments/assets/2d7aea42-75ae-4249-b80e-5af12dd1371a
+
+
+https://github.com/user-attachments/assets/55abf78a-4e17-449c-9cae-c8d191a6acce
+
+
+
 ##### How to developement?
-Khi người dùng bấm nút "Trash" 1 note sẵn có. ngay lập tức trường deletedAt sẽ được update. Tại màn Trash được lọc chỉ hiển thị các Note có deletedAt != nil
+When the user clicks the "Trash" button on an existing note, the deletedAt field will be updated immediately. The filtered Trash screen only displays Notes with deletedAt != nil
 
 #### Force Delete
 Usage: When you select a Note inside the trash, you continue to delete. That Note will disappear completely.
-https://github.com/user-attachments/assets/fce14be9-d987-4d79-a2b7-d9cdf4b45799
 
+
+https://github.com/user-attachments/assets/11a0dbc2-5108-4e86-a144-d7da3dc574f3
+
+
+
+##### How to developement?
+When force deleting Note, Note will be removed from DB
 
 ### Search note
-- Click on Search Bar on the Home screen, enter the keyword you want to search => The system will return a list of Notes matching the keyword being searched and highlight the characters matching the keyword being searched.
+##### Usage
+Click on Search Bar on the Home screen, enter the keyword you want to search => The system will return a list of Notes matching the keyword being searched and highlight the characters matching the keyword being searched.
 
+
+https://github.com/user-attachments/assets/c2f5daa9-f7bc-495a-a684-730eb0a08696
+
+
+
+##### How to developement?
+Khi user nhập từ khoá vào Search Bar tại màn Home, sẽ filter dự trên danh sách notes của user từ DB => nếu có từ khoá match sẽ được highlight qua hàm highlightText trong NoteTableViewCell
+
+## 🔮 Testing
 
 
