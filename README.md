@@ -139,3 +139,4 @@ Khi user nhập từ khoá vào Search Bar tại màn Home, sẽ filter dự tr�
 - Multi-device sync via CloudKit.
 - Rich text support for notes.
 - Loading Indicator
+- Error Handling
