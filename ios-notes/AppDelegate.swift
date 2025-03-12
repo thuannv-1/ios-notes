@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+        setupFirebase()
         return true
     }
     
@@ -23,5 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration",
                                     sessionRole: connectingSceneSession.role)
+    }
+}
+
+extension AppDelegate {
+    private func setupFirebase() {
+        // Please setup Gooogle API_KEY & GOOGLE_APP_ID before open comment below
+        // FirebaseApp.configure()
     }
 }
