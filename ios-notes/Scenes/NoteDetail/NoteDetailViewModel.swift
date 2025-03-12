@@ -54,9 +54,7 @@ extension NoteDetailViewModel: ViewModelType {
             currentNote,
             newNote
         )
-            .map {
-                return $0?.fullContent != $1.fullContent
-            }
+            .map { $0?.fullContent != $1.fullContent }
         
         let addNew = input.saveTrigger
             .filter { _ in mode == .addNew }

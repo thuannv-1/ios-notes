@@ -10,7 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrashViewController" customModule="ios_notes" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="Typ-Lg-qYc" id="AVA-nf-P6P"/>
+                <outlet property="emptyLabel" destination="JXV-YW-tlV" id="Usc-NR-gkE"/>
+                <outlet property="tableView" destination="Typ-Lg-qYc" id="3QE-j6-ZIb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,19 +24,30 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty trash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXV-YW-tlV">
+                    <rect key="frame" x="150.66666666666666" y="458" width="92" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Typ-Lg-qYc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7Ea-in-K1S"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Typ-Lg-qYc" secondAttribute="trailing" id="9tT-gK-Z60"/>
-                <constraint firstItem="Typ-Lg-qYc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Lvx-tF-XTv"/>
+                <constraint firstItem="JXV-YW-tlV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Aal-B8-Y0m"/>
                 <constraint firstItem="Typ-Lg-qYc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TKE-xv-9J5"/>
+                <constraint firstItem="JXV-YW-tlV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.1" id="fC8-Uo-5At"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Typ-Lg-qYc" secondAttribute="bottom" id="uOY-ma-Gvw"/>
             </constraints>
             <point key="canvasLocation" x="109" y="-11"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

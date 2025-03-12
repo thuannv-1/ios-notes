@@ -44,7 +44,10 @@ extension Array where Element == Note {
                 }
             )
         }
-        .sorted { $0.header ?? "" > $1.header ?? "" }
+        .sorted {
+            $0.cells.first?.updatedAt ?? Date.distantPast
+            > $1.cells.first?.updatedAt ?? Date.distantPast
+        }
     }
     
     func filterDeleted() -> [Note] {

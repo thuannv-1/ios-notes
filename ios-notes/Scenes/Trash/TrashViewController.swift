@@ -11,9 +11,9 @@ import RxCocoa
 import Then
 
 final class TrashViewController: UIViewController {
+    @IBOutlet private weak var emptyLabel: UILabel!
     
     @IBOutlet private weak var tableView: UITableView!
-    
     var viewModel: TrashViewModel!
     private let disposeBag = DisposeBag()
     
@@ -78,6 +78,7 @@ extension TrashViewController {
     private var dataSourceBinder: Binder<[NoteSection]> {
         Binder(self) { vc, data in
             vc.dataSource = data
+            vc.emptyLabel.isHidden = !data.isEmpty
         }
     }
 }

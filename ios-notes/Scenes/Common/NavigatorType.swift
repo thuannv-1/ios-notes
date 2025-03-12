@@ -17,7 +17,7 @@ extension NavigatorType {
         navigationController.popViewController(animated: true)
     }
     
-    func dissmiss() {
+    func dismiss() {
         navigationController.dismiss(animated: true, completion: nil)
     }
 }

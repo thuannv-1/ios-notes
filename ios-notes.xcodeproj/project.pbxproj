@@ -10,13 +10,21 @@
 		1F44598482D6354D400FF8F8 /* Pods_ios_notes_ios_notesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B1D1FC42E37A13D26F71B4 /* Pods_ios_notes_ios_notesUITests.framework */; };
 		3E0D03692D7D33BB0090CF61 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D03682D7D33B10090CF61 /* ServiceProvider.swift */; };
 		3E0D036B2D7D34020090CF61 /* Arrray+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D036A2D7D33FE0090CF61 /* Arrray+.swift */; };
+		3E3321612D7D8D520084182D /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3321602D7D8D520084182D /* XCTestCase+.swift */; };
+		3E3321652D7D8D830084182D /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3321642D7D8D7E0084182D /* HomeViewModelTest.swift */; };
+		3E3321672D7D8D8A0084182D /* HomeNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3321662D7D8D8A0084182D /* HomeNavigatorMock.swift */; };
+		3E3321692D7D8D940084182D /* HomeUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3321682D7D8D940084182D /* HomeUseCaseMock.swift */; };
+		3E33216C2D7D8E9F0084182D /* TrashViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33216B2D7D8E930084182D /* TrashViewModelTest.swift */; };
+		3E33216E2D7D8F000084182D /* TrashUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33216D2D7D8F000084182D /* TrashUseCaseMock.swift */; };
+		3E3321702D7D8F0A0084182D /* TrashNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33216F2D7D8F0A0084182D /* TrashNavigatorMock.swift */; };
+		3E3321732D7D90350084182D /* NoteDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3321722D7D90350084182D /* NoteDetailViewModelTest.swift */; };
 		3E58F3282D7ADA3E0048A694 /* Note+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3272D7ADA3B0048A694 /* Note+.swift */; };
 		3E58F32A2D7ADB030048A694 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3292D7ADAFE0048A694 /* UIView+.swift */; };
 		3E58F3322D7AFD120048A694 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3312D7AFD100048A694 /* UITableViewCell+.swift */; };
 		3E58F3342D7B02580048A694 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3332D7B02570048A694 /* UITextView+.swift */; };
 		3E58F3362D7B20640048A694 /* UISearchBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3352D7B205B0048A694 /* UISearchBar+.swift */; };
 		3E58F33C2D7BE5FD0048A694 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F33B2D7BE5FB0048A694 /* String+.swift */; };
-		3E58F33E2D7BECB50048A694 /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F33D2D7BECAD0048A694 /* AppAssembler.swift */; };
+		3E58F33E2D7BECB50048A694 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F33D2D7BECAD0048A694 /* Assembler.swift */; };
 		3E58F3412D7BFD2E0048A694 /* NoteEntity+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3402D7BFD2C0048A694 /* NoteEntity+.swift */; };
 		3E58F3462D7C0EF90048A694 /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58F3442D7C0EF90048A694 /* TrashViewController.swift */; };
 		3E58F3472D7C0EF90048A694 /* TrashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E58F3452D7C0EF90048A694 /* TrashViewController.xib */; };
@@ -49,7 +57,6 @@
 		3E7CB0EE2D79F58F0083F15D /* ios_notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB0D12D79F58F0083F15D /* ios_notes.xcdatamodeld */; };
 		3E7CB0EF2D79F58F0083F15D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB0D42D79F58F0083F15D /* SceneDelegate.swift */; };
 		3E7CB0F72D79F6730083F15D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB0F62D79F6730083F15D /* CoreDataService.swift */; };
-		3E7CB0FA2D79F78F0083F15D /* ios_notesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB0F82D79F78F0083F15D /* ios_notesTests.swift */; };
 		3E7CB0FE2D79F7920083F15D /* ios_notesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB0FB2D79F7920083F15D /* ios_notesUITests.swift */; };
 		3E7CB0FF2D79F7920083F15D /* ios_notesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB0FC2D79F7920083F15D /* ios_notesUITestsLaunchTests.swift */; };
 		3E7CB1032D79FAE70083F15D /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB1022D79FAE70083F15D /* NoteTableViewCell.xib */; };
@@ -57,6 +64,8 @@
 		3E7CB1072D79FB3D0083F15D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB1062D79FB3D0083F15D /* Note.swift */; };
 		3E7CB10A2D7A02850083F15D /* NoteHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7CB1092D7A02850083F15D /* NoteHeaderView.swift */; };
 		3E7CB1102D7A02DB0083F15D /* NoteHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7CB10F2D7A02DB0083F15D /* NoteHeaderView.xib */; };
+		3EC55B4F2D7D9B07009F3B39 /* NoteDetailUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC55B4E2D7D9AF6009F3B39 /* NoteDetailUseCaseMock.swift */; };
+		3EC55B512D7D9B25009F3B39 /* NoteDetailNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC55B502D7D9B25009F3B39 /* NoteDetailNavigatorMock.swift */; };
 		3ED37C4C2D7C27A500BB2094 /* FireBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED37C4B2D7C27A500BB2094 /* FireBaseService.swift */; };
 		3EDF4FF02D7C681B00BE560E /* ActivityTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF4FEF2D7C681A00BE560E /* ActivityTracker.swift */; };
 		3EDF4FF22D7C683000BE560E /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF4FF12D7C683000BE560E /* ErrorTracker.swift */; };
@@ -87,13 +96,21 @@
 		3D991ACCA51B4CB7F53D0B82 /* Pods-ios-notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-notes.debug.xcconfig"; path = "Target Support Files/Pods-ios-notes/Pods-ios-notes.debug.xcconfig"; sourceTree = "<group>"; };
 		3E0D03682D7D33B10090CF61 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		3E0D036A2D7D33FE0090CF61 /* Arrray+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrray+.swift"; sourceTree = "<group>"; };
+		3E3321602D7D8D520084182D /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
+		3E3321642D7D8D7E0084182D /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
+		3E3321662D7D8D8A0084182D /* HomeNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigatorMock.swift; sourceTree = "<group>"; };
+		3E3321682D7D8D940084182D /* HomeUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseMock.swift; sourceTree = "<group>"; };
+		3E33216B2D7D8E930084182D /* TrashViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewModelTest.swift; sourceTree = "<group>"; };
+		3E33216D2D7D8F000084182D /* TrashUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashUseCaseMock.swift; sourceTree = "<group>"; };
+		3E33216F2D7D8F0A0084182D /* TrashNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashNavigatorMock.swift; sourceTree = "<group>"; };
+		3E3321722D7D90350084182D /* NoteDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewModelTest.swift; sourceTree = "<group>"; };
 		3E58F3272D7ADA3B0048A694 /* Note+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+.swift"; sourceTree = "<group>"; };
 		3E58F3292D7ADAFE0048A694 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		3E58F3312D7AFD100048A694 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 		3E58F3332D7B02570048A694 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		3E58F3352D7B205B0048A694 /* UISearchBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+.swift"; sourceTree = "<group>"; };
 		3E58F33B2D7BE5FB0048A694 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		3E58F33D2D7BECAD0048A694 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
+		3E58F33D2D7BECAD0048A694 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		3E58F3402D7BFD2C0048A694 /* NoteEntity+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEntity+.swift"; sourceTree = "<group>"; };
 		3E58F3442D7C0EF90048A694 /* TrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
 		3E58F3452D7C0EF90048A694 /* TrashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrashViewController.xib; sourceTree = "<group>"; };
@@ -130,7 +147,6 @@
 		3E7CB0D42D79F58F0083F15D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3E7CB0D62D79F58F0083F15D /* ios_notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ios_notes.xcdatamodel; sourceTree = "<group>"; };
 		3E7CB0F62D79F6730083F15D /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
-		3E7CB0F82D79F78F0083F15D /* ios_notesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_notesTests.swift; sourceTree = "<group>"; };
 		3E7CB0FB2D79F7920083F15D /* ios_notesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_notesUITests.swift; sourceTree = "<group>"; };
 		3E7CB0FC2D79F7920083F15D /* ios_notesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_notesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3E7CB1012D79FAE70083F15D /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +154,8 @@
 		3E7CB1062D79FB3D0083F15D /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		3E7CB1092D7A02850083F15D /* NoteHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteHeaderView.swift; sourceTree = "<group>"; };
 		3E7CB10F2D7A02DB0083F15D /* NoteHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteHeaderView.xib; sourceTree = "<group>"; };
+		3EC55B4E2D7D9AF6009F3B39 /* NoteDetailUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailUseCaseMock.swift; sourceTree = "<group>"; };
+		3EC55B502D7D9B25009F3B39 /* NoteDetailNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailNavigatorMock.swift; sourceTree = "<group>"; };
 		3ED37C4B2D7C27A500BB2094 /* FireBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseService.swift; sourceTree = "<group>"; };
 		3EDF4FEF2D7C681A00BE560E /* ActivityTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTracker.swift; sourceTree = "<group>"; };
 		3EDF4FF12D7C683000BE560E /* ErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
@@ -181,6 +199,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E33215F2D7D8D460084182D /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				3E3321602D7D8D520084182D /* XCTestCase+.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		3E3321622D7D8D6A0084182D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3E3321712D7D90220084182D /* NoteDetail */,
+				3E33216A2D7D8E180084182D /* Trash */,
+				3E3321632D7D8D750084182D /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		3E3321632D7D8D750084182D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3E3321642D7D8D7E0084182D /* HomeViewModelTest.swift */,
+				3E3321662D7D8D8A0084182D /* HomeNavigatorMock.swift */,
+				3E3321682D7D8D940084182D /* HomeUseCaseMock.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3E33216A2D7D8E180084182D /* Trash */ = {
+			isa = PBXGroup;
+			children = (
+				3E33216B2D7D8E930084182D /* TrashViewModelTest.swift */,
+				3E33216D2D7D8F000084182D /* TrashUseCaseMock.swift */,
+				3E33216F2D7D8F0A0084182D /* TrashNavigatorMock.swift */,
+			);
+			path = Trash;
+			sourceTree = "<group>";
+		};
+		3E3321712D7D90220084182D /* NoteDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3E3321722D7D90350084182D /* NoteDetailViewModelTest.swift */,
+				3EC55B4E2D7D9AF6009F3B39 /* NoteDetailUseCaseMock.swift */,
+				3EC55B502D7D9B25009F3B39 /* NoteDetailNavigatorMock.swift */,
+			);
+			path = NoteDetail;
+			sourceTree = "<group>";
+		};
 		3E58F3262D7ADA250048A694 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +322,7 @@
 			children = (
 				3E7CB0B82D79F58F0083F15D /* BaseViewController.swift */,
 				3E7CB0B92D79F58F0083F15D /* NavigatorType.swift */,
-				3E58F33D2D7BECAD0048A694 /* AppAssembler.swift */,
+				3E58F33D2D7BECAD0048A694 /* Assembler.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -375,7 +441,8 @@
 		3E7CB0F92D79F78F0083F15D /* ios-notesTests */ = {
 			isa = PBXGroup;
 			children = (
-				3E7CB0F82D79F78F0083F15D /* ios_notesTests.swift */,
+				3E3321622D7D8D6A0084182D /* Scenes */,
+				3E33215F2D7D8D460084182D /* Supports */,
 			);
 			path = "ios-notesTests";
 			sourceTree = "<group>";
@@ -476,6 +543,7 @@
 				3E7CB04A2D79ECCE0083F15D /* Sources */,
 				3E7CB04B2D79ECCE0083F15D /* Frameworks */,
 				3E7CB04C2D79ECCE0083F15D /* Resources */,
+				1BFD093BE76774B24284AE53 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -606,6 +674,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1BFD093BE76774B24284AE53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ios-notesTests/Pods-ios-notesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ios-notesTests/Pods-ios-notesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ios-notesTests/Pods-ios-notesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		747B56DCED7D0F5161546C98 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -708,7 +793,7 @@
 				3E58F3492D7C0F060048A694 /* TrashViewModel.swift in Sources */,
 				3E58F3412D7BFD2E0048A694 /* NoteEntity+.swift in Sources */,
 				3E58F3342D7B02580048A694 /* UITextView+.swift in Sources */,
-				3E58F33E2D7BECB50048A694 /* AppAssembler.swift in Sources */,
+				3E58F33E2D7BECB50048A694 /* Assembler.swift in Sources */,
 				3E7CB0E22D79F58F0083F15D /* HomeUseCase.swift in Sources */,
 				3E58F34D2D7C0F150048A694 /* TrashNavigator.swift in Sources */,
 				3ED37C4C2D7C27A500BB2094 /* FireBaseService.swift in Sources */,
@@ -741,7 +826,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E7CB0FA2D79F78F0083F15D /* ios_notesTests.swift in Sources */,
+				3E3321672D7D8D8A0084182D /* HomeNavigatorMock.swift in Sources */,
+				3E33216E2D7D8F000084182D /* TrashUseCaseMock.swift in Sources */,
+				3EC55B4F2D7D9B07009F3B39 /* NoteDetailUseCaseMock.swift in Sources */,
+				3E3321702D7D8F0A0084182D /* TrashNavigatorMock.swift in Sources */,
+				3E3321652D7D8D830084182D /* HomeViewModelTest.swift in Sources */,
+				3E3321612D7D8D520084182D /* XCTestCase+.swift in Sources */,
+				3E3321732D7D90350084182D /* NoteDetailViewModelTest.swift in Sources */,
+				3E33216C2D7D8E9F0084182D /* TrashViewModelTest.swift in Sources */,
+				3EC55B512D7D9B25009F3B39 /* NoteDetailNavigatorMock.swift in Sources */,
+				3E3321692D7D8D940084182D /* HomeUseCaseMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

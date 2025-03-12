@@ -9,7 +9,6 @@ import UIKit
 
 protocol NoteDetailNavigatorType {
     func pop()
-    func toNoteDetail()
 }
 
 struct NoteDetailNavigator: NavigatorType {
@@ -17,7 +16,5 @@ struct NoteDetailNavigator: NavigatorType {
 }
 
 extension NoteDetailNavigator: NoteDetailNavigatorType {
-    func toNoteDetail() {
-        
-    }
+    
 }

@@ -14,6 +14,8 @@ target 'ios-notes' do
 
   target 'ios-notesTests' do
     inherit! :search_paths
+    pod 'RxTest'
+    pod 'RxBlocking'
   end
 
   target 'ios-notesUITests' do
